@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400&display=swap');
+@import "./components/CCalculator";
+@import "./components/CButton";
+:root {
+  --color-general-white: #FFFFFF;
+  --color-background: #17171C;
+  --color-text: #FFFFFF;
+  --color-button-high: #4B5EFC;
+  --color-button-medium: #4E505F;
+  --color-button-low: #2E2F38;
+
+}
+
+.light-mode:root {
+  --color-background: #F1F2F3;
+  --color-text: #000000;
+  --color-button-high: #4B5EFC;
+  --color-button-medium: #D2D3DA;
+  --color-button-low: #FFFFFF;
+}
+
+html,
+*:before,
+*:after,{
+  font-family: "Work Sans", sans-serif;
+  box-sizing: border-box;
+  color: var(--color-text);
+  margin: 0;
+  bottom: 0;
+}
+
+html {
+  background-color: var(--color-background);
+}

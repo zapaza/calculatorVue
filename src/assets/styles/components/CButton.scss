@@ -1,0 +1,26 @@
+.calculator-button {
+  height: 72px;
+  border-radius: 24px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  color: var(--color-text);
+  padding: 0;
+
+  &--low {
+    background-color: var(--color-button-low);
+  }
+
+  &--medium {
+    background-color: var(--color-button-medium);
+  }
+
+  &--high {
+    background-color: var(--color-button-high);
+    color: var(--color-general-white);
+  }
+}
