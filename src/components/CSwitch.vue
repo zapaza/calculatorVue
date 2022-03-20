@@ -1,5 +1,5 @@
 <template>
-  <label class="calculator-switch">
+  <div class="calculator-switch" @click="changeTheme">
     <span class="calculator-switch__titles">
       <span class="calculator-switch__title">Dark</span>
       <span class="calculator-switch__title">Light</span>
@@ -10,11 +10,11 @@
       v-model="themeMode"
     />
     <span class="calculator-switch__toggle"></span>
-  </label>
+  </div>
 </template>
 
 <script lang="ts">
-import { computed, onMounted, ref } from "vue";
+import { onMounted, ref } from "vue";
 
 enum ThemModeValue {
   Dark = "Dark",
@@ -26,28 +26,33 @@ export default {
   setup() {
     const themeMode = ref<boolean>(false);
 
-    // eslint-disable-next-line vue/return-in-computed-property
-    const changeTheme = computed(() => {
+    const changeTheme = () => {
       const html = document.getElementsByTagName("html")[0];
+
+      themeMode.value = !themeMode.value;
 
       if (themeMode.value) {
         html.classList.add("light-mode");
-        window.localStorage.setItem("theme-mode", "Light");
+        window.localStorage.setItem("theme-mode", ThemModeValue.Light);
       } else {
         html.classList.remove("light-mode");
         window.localStorage.setItem("theme-mode", ThemModeValue.Dark);
       }
-    });
+    };
 
     onMounted(() => {
       const selectedMode = window.localStorage.getItem("theme-mode");
+
       if (selectedMode === ThemModeValue.Light) {
         themeMode.value = true;
       } else if (selectedMode === ThemModeValue.Dark) {
         themeMode.value = false;
       } else {
         window.localStorage.setItem("theme-mode", ThemModeValue.Dark);
+        themeMode.value = false;
       }
+
+      changeTheme();
     });
 
     return {
