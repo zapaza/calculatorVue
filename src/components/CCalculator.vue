@@ -11,7 +11,7 @@
     </div>
     <div class="calculator__buttons">
       <CButton value="C" type="medium" @click-button="pressed('c')"></CButton>
-      <CButton type="medium" @click-button="negateValue"></CButton>
+      <CButton type="medium" value="±" @click-button="negateValue"></CButton>
       <CButton value="%" type="medium" @click-button="pressed('%')"></CButton>
       <CButton value="÷" type="high" @click-button="pressed('/')"></CButton>
 
@@ -32,7 +32,7 @@
 
       <CButton value="." type="low" @click-button="pressed('.')"></CButton>
       <CButton value="0" type="low" @click-button="pressed('0')"></CButton>
-      <CButton type="low" @click-button="deleteValue"></CButton>
+      <CButton value="Del" type="low" @click-button="deleteValue"></CButton>
       <CButton value="=" type="high" @click-button="pressed('=')"></CButton>
     </div>
   </div>
@@ -119,7 +119,7 @@ export default defineComponent({
     };
     const negateValue = () => {
       if (currentNum.value === "0") {
-        return (currentNum.value = "-0");
+        return (currentNum.value = "0");
       }
       if (currentNum.value === "-") {
         return (currentNum.value = "0");
