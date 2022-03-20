@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400&display=swap');
 @import "./components/CCalculator";
 @import "./components/CButton";
+@import "./components/CSwitch";
+
 :root {
   --color-general-white: #FFFFFF;
   --color-background: #17171C;
@@ -31,4 +33,11 @@ html,
 
 html {
   background-color: var(--color-background);
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
